@@ -43,4 +43,12 @@ public class Banco {
 		return false;
 	}
 	
+	public boolean transferir(Cuenta origen, Cuenta destino, double monto) {
+		
+		if(monto>0 && origen.getSaldoActual() >= monto && origen.getId() != destino.getId()) {
+			return retirar(monto, origen) && depositar(monto, destino);
+		}
+		
+		return false;
+	}
 }
